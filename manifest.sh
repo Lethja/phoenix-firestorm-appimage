@@ -24,18 +24,56 @@ manifest[3,2]=0x0 # This viewer uses WebRTC for voice chat
 
 MAX=4 # Total number of manifest entries
 
-# Print the options
-for ((i = 0; i < MAX; i++)); do
-	url="${manifest[$i,1]}"
-	filename="${url##*/}"
-	filename="${filename%%.*}"
-	echo "$i: $filename"
-done
+print_options() {
+	for ((i = 0; i < MAX; i++)); do
+		url="${manifest[$i,1]}"
+		filename="${url##*/}"
+		filename="${filename%%.*}"
+		echo "$i: $filename"
+	done
 
-read -p "Select a option by number: " row
+	echo "a: Run all"
+	echo "q: Quit"
+}
 
-if [[ $row -ge 0 && $row -lt $MAX ]]; then
-	./fsAppImg.sh "${manifest[$row,0]}" "${manifest[$row,1]}" "${manifest[$row,2]}"
+run_selection() {
+	local selection=$1
+	if [[ $selection == "a" ]]; then
+		for ((i = 0; i < MAX; i++)); do
+			./fsAppImg.sh "${manifest[$i,0]}" "${manifest[$i,1]}" "${manifest[$i,2]}"
+		done
+	elif [[ $selection == "q" ]]; then
+		echo "Quitting."
+		exit 0
+	elif [[ $selection -ge 0 && $selection -lt $MAX ]]; then
+		./fsAppImg.sh "${manifest[$selection,0]}" "${manifest[$selection,1]}" "${manifest[$selection,2]}"
+	else
+		echo "Invalid selection: $selection"
+	fi
+}
+
+if [ $# -gt 0 ]; then
+	if [[ "$*" =~ " q " ]]; then
+		exit 0
+	fi
+
+	if [[ "$*" =~ " a " ]]; then
+		run_selection "a"
+	else
+		for selection in "$@"; do
+			run_selection "$selection"
+		done
+	fi
 else
-	echo "Invalid selection."
+	print_options
+	read -p "Select options by numbers separated by space or a letter: " -a selections
+
+	if [[ -z "${selections[@]}" ]]; then
+		echo "No selection made."
+		exit 1
+	fi
+
+	for selection in "${selections[@]}"; do
+		run_selection "$selection"
+	done
 fi
