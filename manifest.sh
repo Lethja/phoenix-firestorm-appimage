@@ -66,9 +66,9 @@ if [ $# -gt 0 ]; then
 	fi
 else
 	print_options
-	read -p "Select options by numbers separated by space or a letter: " -a selections
+	read -rp "Select options by numbers separated by space or a letter: " -a selections
 
-	if [[ -z "${selections[@]}" ]]; then
+	if [[ ${#selections[@]} -eq 0 ]]; then
 		echo "No selection made."
 		exit 1
 	fi
