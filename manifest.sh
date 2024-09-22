@@ -22,7 +22,11 @@ manifest[3,0]="sha256 370fa700c4cf1ccf9e16a933d5bb056fc3adb783971aba4c238797ff03
 manifest[3,1]="https://github.com/AlchemyViewer/Alchemy/releases/download/7.1.9.2501-beta/Alchemy_Beta_7_1_9_2501_x86_64.tar.xz"
 manifest[3,2]=0x0 # This viewer uses WebRTC for voice chat
 
-MAX=4 # Total number of manifest entries
+manifest[4,0]="md5 d2b1a5a455c754362f1b473094908d94"
+manifest[4,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64-7-1-10-75913.tar.xz"
+manifest[4,2]=0x0 # This viewer uses WebRTC for voice chat
+
+MAX=5 # Total number of manifest entries
 
 print_options() {
 	for ((i = 0; i < MAX; i++)); do
