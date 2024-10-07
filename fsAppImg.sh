@@ -23,7 +23,7 @@ download_and_verify() {
 
 	if [ ! -f "$name" ]; then
 		echo "Downloading $suri..."
-		wget -O "$name" "$suri"
+		wget -O "$name" "$suri" || exit 1
 	fi
 
 	local array=()
@@ -38,7 +38,7 @@ download_and_verify() {
 	fi
 
 	if ! "${array[0]}sum" -c "$name.${array[0]}"; then
-		echo "Checksum failed for $SL_name"
+		echo "Checksum failed for $name"
 		exit 1
 	fi
 }
@@ -74,7 +74,7 @@ echo "Downloading and verifying content"
 download_and_verify "$AI_NAME" "$AI_SURI" "$AI_CSUM"
 download_and_verify "$SL_NAME" "$SL_SURI" "$SL_CSUM"
 
-if (($3 & 0x1)); then
+if [ -n "$3" ] && (($3 & 0x1)); then
 	download_and_verify "$VC_NAME" "$VC_SURI" "$VC_CSUM"
 fi
 
@@ -97,10 +97,9 @@ echo "Extracting missing Vivox 32-bit libraries from $VC_NAME..."
 unzip -qnj "$VC_NAME" "3p-slvoice-master/bin/lib32/*" -d "AppDir/lib32"
 fi
 
-echo "Reconfiguring files in preperation for AppImage..."
+echo "Reconfiguring files in preparation for AppImage..."
 
-# Install scripts defeat the purposes of appimages
-# Could cause end-user confusion if the appimage is extracted
+# Install scripts are redundant and could cause end-user confusion if the appimage is extracted
 if [ -e "AppDir/install.sh" ]; then rm "AppDir/install.sh"; fi
 if [ -e "AppDir/FIRESTORM_DESKTOPINSTALL.txt" ]; then rm "AppDir/FIRESTORM_DESKTOPINSTALL.txt"; fi
 
