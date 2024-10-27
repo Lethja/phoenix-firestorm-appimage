@@ -26,7 +26,15 @@ manifest[4,0]="md5 d2b1a5a455c754362f1b473094908d94"
 manifest[4,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64-7-1-10-75913.tar.xz"
 manifest[4,2]=0x0 # This viewer uses WebRTC for voice chat
 
-MAX=5 # Total number of manifest entries
+manifest[5,0]="md5 185d21aa2b350279a7ffcc2372a726db"
+manifest[5,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Release_LEGACY-7-1-11-76496.tar.xz"
+manifest[5,2]=0x0 # This viewer uses WebRTC for voice chat
+
+manifest[6,0]="md5 8f6e6957ad01b86182d0cdb178dbdd9b"
+manifest[6,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-1-11-76496.tar.xz"
+manifest[6,2]=0x0 # This viewer uses WebRTC for voice chat
+
+MAX=7 # Total number of manifest entries
 
 print_options() {
 	for ((i = 0; i < MAX; i++)); do
