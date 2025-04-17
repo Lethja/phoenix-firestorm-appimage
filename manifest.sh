@@ -38,7 +38,11 @@ manifest[7,0]="sha256 1e49bf122eb238a9beaf8b2abe64f1aa2aeaed24f06fffc6215fe55a07
 manifest[7,1]="https://github.com/AlchemyViewer/Alchemy/releases/download/7.1.9.2514-beta/Alchemy_Beta_7_1_9_2514_x86_64.tar.zst"
 manifest[7,2]=0x0 # This viewer uses WebRTC for voice chat
 
-MAX=8 # Total number of manifest entries
+manifest[8,0]="sha256 163a8353b1ec91f42466580b853fe031d97d60746768d970bf105461d2e5a1c9"
+manifest[8,1]="https://github.com/AlchemyViewer/Alchemy/releases/download/7.1.9.2516-beta/Alchemy_Beta_7_1_9_2516_x86_64.tar.zst"
+manifest[8,2]=0x0 # This viewer uses WebRTC for voice chat
+
+MAX=9 # Total number of manifest entries
 
 print_options() {
 	for ((i = 0; i < MAX; i++)); do
