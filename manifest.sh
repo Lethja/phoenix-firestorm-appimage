@@ -20,31 +20,31 @@ manifest[2,2]=0x1
 
 manifest[3,0]="sha256 370fa700c4cf1ccf9e16a933d5bb056fc3adb783971aba4c238797ff0324301e"
 manifest[3,1]="https://github.com/AlchemyViewer/Alchemy/releases/download/7.1.9.2501-beta/Alchemy_Beta_7_1_9_2501_x86_64.tar.xz"
-manifest[3,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[3,2]=0x1
 
 manifest[4,0]="md5 d2b1a5a455c754362f1b473094908d94"
 manifest[4,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64-7-1-10-75913.tar.xz"
-manifest[4,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[4,2]=0x1
 
 manifest[5,0]="md5 185d21aa2b350279a7ffcc2372a726db"
 manifest[5,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Release_LEGACY-7-1-11-76496.tar.xz"
-manifest[5,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[5,2]=0x1
 
 manifest[6,0]="md5 8f6e6957ad01b86182d0cdb178dbdd9b"
 manifest[6,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-1-11-76496.tar.xz"
-manifest[6,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[6,2]=0x1
 
 manifest[7,0]="sha256 1e49bf122eb238a9beaf8b2abe64f1aa2aeaed24f06fffc6215fe55a07c84c22"
 manifest[7,1]="https://github.com/AlchemyViewer/Alchemy/releases/download/7.1.9.2514-beta/Alchemy_Beta_7_1_9_2514_x86_64.tar.zst"
-manifest[7,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[7,2]=0x1
 
 manifest[8,0]="sha256 163a8353b1ec91f42466580b853fe031d97d60746768d970bf105461d2e5a1c9"
 manifest[8,1]="https://github.com/AlchemyViewer/Alchemy/releases/download/7.1.9.2516-beta/Alchemy_Beta_7_1_9_2516_x86_64.tar.zst"
-manifest[8,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[8,2]=0x1
 
 manifest[9,0]="md5 f1f8903b5ca4f4a841fae465cfbf3466"
 manifest[9,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-1-13-78266.tar.xz"
-manifest[9,2]=0x0 # This viewer uses WebRTC for voice chat
+manifest[9,2]=0x1
 
 MAX=10 # Total number of manifest entries
 

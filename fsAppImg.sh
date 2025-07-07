@@ -93,7 +93,7 @@ mkdir -p AppDir
 tar -xf "$SL_NAME" -C AppDir --strip-components=1
 
 if (($3 & 0x1)); then
-echo "Extracting missing Vivox 32-bit libraries from $VC_NAME..."
+echo "Extracting missing Vivox 32-bit libraries from $VC_NAME ($VC_SURI)..."
 unzip -qnj "$VC_NAME" "3p-slvoice-master/bin/lib32/*" -d "AppDir/lib32"
 fi
 
