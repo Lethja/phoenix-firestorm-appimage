@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # AI = AppImage
-AI_SURI="https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage"
-AI_CSUM="md5 8897f478bb7b701fcd107503a08f62c4"
-AI_NAME="${AI_SURI##*/}"
+# TODO: Dynamically assign name
+AI_NAME="appimagetool-x86_64.AppImage"
 
 # SL = SecondLife Viewer
 SL_SURI="$2"
@@ -71,7 +70,7 @@ EOF
 
 echo "Downloading and verifying content"
 
-download_and_verify "$AI_NAME" "$AI_SURI" "$AI_CSUM"
+./dlAppImg.sh
 download_and_verify "$SL_NAME" "$SL_SURI" "$SL_CSUM"
 
 if [ -n "$3" ] && (($3 & 0x1)); then
