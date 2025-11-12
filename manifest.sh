@@ -46,7 +46,15 @@ manifest[9,0]="md5 f1f8903b5ca4f4a841fae465cfbf3466"
 manifest[9,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-1-13-78266.tar.xz"
 manifest[9,2]=0x1
 
-MAX=10 # Total number of manifest entries
+manifest[10,0]="md5 3f637ad95e76c028f3bd638f0ad6d5f6"
+manifest[10,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Release_LEGACY-7-2-2-79439.tar.xz"
+manifest[10,2]=0x1
+
+manifest[11,0]="md5 a942739dd9452c471b24169160929e1c"
+manifest[11,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-2-2-79439.tar.xz"
+manifest[11,2]=0x1
+
+MAX=12 # Total number of manifest entries
 
 print_options() {
 	for ((i = 0; i < MAX; i++)); do
