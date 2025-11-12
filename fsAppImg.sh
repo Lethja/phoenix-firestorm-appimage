@@ -131,12 +131,14 @@ echo "Creating AppImage $OUTPUT..."
 
 ARCH=x86_64 "./$AI_NAME" -n AppDir "$OUTPUT"
 
-echo "Zipping $OUTPUT into ${OUTPUT}.zip..."
+echo "Zipping $OUTPUT into zip/${OUTPUT}.zip..."
 
-zip -0 "${OUTPUT}.zip" "$OUTPUT"
+mkdir -p zip
+
+zip -0 "zip/${OUTPUT}.zip" "$OUTPUT"
 
 echo "Cleaning up..."
 
 rm -R AppDir "$OUTPUT"
 
-echo "$OUTPUT successfully made and stored in ${OUTPUT%%.*}.zip"
+echo "$OUTPUT successfully made and stored in zip/${OUTPUT%%.*}.zip"

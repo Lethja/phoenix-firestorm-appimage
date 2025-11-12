@@ -41,7 +41,7 @@ Select options by numbers separated by space or a letter:
 ```
 Type the number(s) for the viewer(s) you wish to make an appimage of and press enter.
 
-The appimage will be created and stored in a zip automatically.
+The appimage will be created and stored in a folder named zip automatically.
 Storing an appimage in a zip preserved the executable permission
 which will make deployment feel more streamlined to macOS and Windows users
 
