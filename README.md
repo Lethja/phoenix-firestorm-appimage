@@ -20,7 +20,7 @@ You will need a Linux x86_64 machine to build an appimage
 
 On a terminal run the following to make sure scripts dependencies are installed
 ```shell
-which md5sum sed sha256sum tar unzip wget zip > /dev/null
+which jq md5sum sed sha256sum tar unzip wget zip > /dev/null
 ```
 The command will exit without printing anything if all dependencies are satisfied.
 If this is not the case, refer to your distribution documentation to determine what packages to install.
