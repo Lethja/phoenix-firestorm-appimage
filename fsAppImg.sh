@@ -124,6 +124,7 @@ OUTPUT="${SL_NAME%%.*}-x86_64.AppImage"
 # Remove Releasex64 from the AppImage name.
 # Appimage standardize putting the ISA on the end of the file name
 OUTPUT="${OUTPUT//-Releasex64}"
+OUTPUT="${OUTPUT//-Release}"
 OUTPUT="${OUTPUT//_x86_64}"
 
 echo "Creating AppImage $OUTPUT..."
