@@ -20,9 +20,9 @@ download_and_verify() {
 	local name="$1"
 	local suri="$2"
 
-	if [ ! -f "$name" ]; then
+	if [ ! -f "data/$name" ]; then
 		echo "Downloading $suri..."
-		wget -O "$name" "$suri" || exit 1
+		wget -O "data/$name" "$suri" || exit 1
 	fi
 
 	local array=()
@@ -33,10 +33,10 @@ download_and_verify() {
 	done
 
 	if [ ! -f "$name.${array[0]}" ]; then
-		echo "${array[1]}  $name" > "$name.${array[0]}"
+		echo "${array[1]}  data/$name" > "data/$name.${array[0]}"
 	fi
 
-	if ! "${array[0]}sum" -c "$name.${array[0]}"; then
+	if ! "${array[0]}sum" -c "data/$name.${array[0]}"; then
 		echo "Checksum failed for $name"
 		exit 1
 	fi
@@ -70,6 +70,8 @@ EOF
 
 echo "Downloading and verifying content"
 
+if ! mkdir -p data zip; then echo "Couldn't create folders"; exit 1; fi
+
 ./dlAppImg.sh
 download_and_verify "$SL_NAME" "$SL_SURI" "$SL_CSUM"
 
@@ -89,11 +91,11 @@ if [ -e "AppDir" ]; then
 fi
 
 mkdir -p AppDir
-tar -xf "$SL_NAME" -C AppDir --strip-components=1
+tar -xf "data/$SL_NAME" -C AppDir --strip-components=1
 
 if (($3 & 0x1)); then
 echo "Extracting missing Vivox 32-bit libraries from $VC_NAME ($VC_SURI)..."
-unzip -qnj "$VC_NAME" "3p-slvoice-master/bin/lib32/*" -d "AppDir/lib32"
+unzip -qnj "data/$VC_NAME" "3p-slvoice-master/bin/lib32/*" -d "AppDir/lib32"
 fi
 
 echo "Reconfiguring files in preparation for AppImage..."
