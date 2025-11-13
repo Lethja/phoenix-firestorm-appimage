@@ -70,4 +70,4 @@ jobs:
             --draft \
             --title "$TAG_NAME" \
             --notes "$NOTES" \
-            AppImages/zip/*.zip
+            AppImages/*.zip
