@@ -73,16 +73,36 @@ manifest[15,2]=0x1
 
 MAX=16 # Total number of manifest entries
 
+print_options_dialog() {
+	local choices text dialog_options=()
+	for ((i = MAX - 1; i > -1; i--)); do
+		url="${manifest[$i,1]}"
+		filename="${url##*/}"
+		filename="${filename%.tar*}"
+		dialog_options+=("$i" "$filename" "off")
+	done
+
+	text="Use the up/down arrow keys to move through the menu and space to toggle the highlighted selection.
+Use left/right arrow keys to select OK/Cancel and press Enter to continue."
+
+	choices=$(dialog --checklist "$text" 0 0 0 "${dialog_options[@]}" 3>&1 1>&2 2>&3)
+	dialog --clear
+
+	eval "selections=($choices)"
+}
+
 print_options() {
 	for ((i = 0; i < MAX; i++)); do
 		url="${manifest[$i,1]}"
 		filename="${url##*/}"
-		filename="${filename%%.*}"
+		filename="${filename%.tar*}"
 		echo "$i: $filename"
 	done
 
 	echo "a: Run all"
 	echo "q: Quit"
+
+	read -rp "Select options by numbers separated by space or a letter: " -a selections
 }
 
 run_selection() {
@@ -114,8 +134,11 @@ if [ $# -gt 0 ]; then
 		done
 	fi
 else
-	print_options
-	read -rp "Select options by numbers separated by space or a letter: " -a selections
+	if command -v dialog &> /dev/null; then
+		print_options_dialog
+	else
+		print_options
+	fi
 
 	if [[ ${#selections[@]} -eq 0 ]]; then
 		echo "No selection made."

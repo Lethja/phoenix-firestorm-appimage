@@ -30,7 +30,10 @@ Run the manifest script in a terminal
 ```shell
 ./manifest.sh
 ```
-You should see options like this appear:
+
+If the `dialog` command is installed, then a checkbox list will be displayed,
+if not; a selection list similar to this will appear:
+
 ```
 0: Phoenix-Firestorm-Releasex64-6-6-14-69596
 1: Phoenix-Firestorm-Releasex64-6-6-17-70368
@@ -41,9 +44,17 @@ Select options by numbers separated by space or a letter:
 ```
 Type the number(s) for the viewer(s) you wish to make an appimage of and press enter.
 
+For example, typing `0 4 3` to the list above will build an AppImage
+of `Phoenix-Firestorm-Releasex64-6-6-14-69596`, `Phoenix-Firestorm-Releasex64-7-1-10-75913`
+and `Alchemy_Beta_7_1_9_2501_x86_64` in that order.
+
+If you already know which number(s) of the AppImages
+you want to build, you can pass them as parameter(s)
+like `./manifest.sh 0 4 3` to skip the menu.
+
 The appimage will be created and stored in a folder named zip automatically.
-Storing an appimage in a zip preserved the executable permission
-which will make deployment feel more streamlined to macOS and Windows users
+Storing an appimage in a zip preserved the executable permission, 
+which will make deployment feel more streamlined to macOS and Windows users.
 
 ## Build an unlisted version
 Run the fsAppImg script with hash checksum string and the URL to the tarball.
