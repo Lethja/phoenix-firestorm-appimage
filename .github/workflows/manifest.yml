@@ -1,4 +1,4 @@
-name: Create All
+name: Second Life Viewer AppImage Builds
 
 on: workflow_dispatch
 
@@ -41,6 +41,9 @@ jobs:
       TZ: GMT
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Download Artifacts
         uses: actions/download-artifact@v4
 
@@ -63,7 +66,7 @@ jobs:
             esac
           fi
 
-          NOTES="Second Life Viewer Appimages built on the ${day}${suffix} of ${month} ${year}"
+          NOTES="Second Life Viewer AppImages built on the ${day}${suffix} of ${month} ${year}"
           TAG_NAME=$(date -I)
 
           gh release create "$TAG_NAME" \
