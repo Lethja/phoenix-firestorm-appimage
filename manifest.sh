@@ -71,7 +71,15 @@ manifest[15,0]="md5 3d282d65709ae7875287211bd5b817ef"
 manifest[15,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-2-4-80712.tar.xz"
 manifest[15,2]=0x1
 
-MAX=16 # Total number of manifest entries
+manifest[16,0]="md5 317b306879cd114b305c082ccda9c4ed"
+manifest[16,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Release_LEGACY-7-2-5-81788.tar.xz"
+manifest[16,2]=0x1
+
+manifest[17,0]="md5 34de662f79bc5b5d0c6863d9cfd0d409"
+manifest[17,1]="https://downloads.firestormviewer.org/release/linux/Phoenix-Firestorm-Releasex64_AVX2-7-2-5-81788.tar.xz"
+manifest[17,2]=0x1
+
+MAX=18 # Total number of manifest entries
 
 print_options_dialog() {
 	local choices text dialog_options=()
